@@ -1,0 +1,64 @@
+<%-include('header.ejs')%>
+    <div class="container mt-5">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+        <tr>
+            <th>Sno</th>
+            <th>Product Name</th>
+            <th>Product price</th>
+            <th>Product type</th>
+            <th>Product stock quantity</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% for(var i=0;i<mydata.length;i++){%>
+            <tr>
+                <td><%=mydata[i].id%></td>
+                <td><%=mydata[i].product_name%></td>
+                <td><%=mydata[i].product_price%></td>
+                <td><%=mydata[i].product_type%></td>
+                <td><%=mydata[i].no_of_stock%></td>
+            </tr>
+       <% }%>
+    </tbody>
+    </table>
+    
+</div>
+  
+
+
+    <script>
+        $(document).ready(function () {
+            // $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'excel',
+                    text: 'Excel',
+                    className: 'exportExcel',
+                    filename: 'Test_Excel',
+                    exportOptions: { modifier: { page: 'all'} }
+                },
+                {
+                    extend: 'csv',
+                    text: 'CSV',
+                    className: 'exportExcel',
+                    filename: 'Test_Csv',
+                    exportOptions: { modifier: { page: 'all'} }
+                },
+                {
+                    extend: 'pdf',
+                    text: 'PDF',
+                    className: 'exportExcel',
+                    filename: 'Test_Pdf',
+                    exportOptions: { modifier: { page: 'all'} }
+                }]
+            });
+ 
+        });
+    </script>
+
+
+</body>
+</html>

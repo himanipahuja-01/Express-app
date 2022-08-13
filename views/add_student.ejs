@@ -1,0 +1,25 @@
+<%-include('header.ejs')%>
+
+<h1 align="center">Add Student</h1>
+<center>
+    <form action="/add_student_data" method="post" enctype="multipart/form-data">
+        Student name<input type="text" name="nm" required placeholder="Enter Your Name"><br><br>
+        Student Email-Id<input type="email" name="em" required placeholder="Enter Your Email-id"><br><br>
+        Select Photo<input type="file" name="my_image_file" required><br><br>
+Branch<select required name="brn">
+    <option selected disabled value="">Select Branch</option>
+    <option>Cse</option>
+    <option>civil</option>
+    <option>Mech</option>
+</select><br><br>
+<button>save now</button>
+    </form>
+
+    <%if(status){%>
+      
+        <h3><font color = 'green'>Data save successfully</font></h3>
+    <%}%>
+</center>
+
+</body>
+</html>

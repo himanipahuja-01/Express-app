@@ -1,0 +1,56 @@
+<%-include('admin_dashboard_header.ejs')%>
+
+<div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+    <div class="container">
+        <h1 align="center" class="mt-3">Add Watches</h1>
+        <div class="row">
+            <div class="col-lg-5">
+                <img src="../public/upload_images/illus4.webp" class="img-fluid">
+            </div>
+            
+            <div class="col-lg-7">
+               
+    <form action="/add_watches" method="post" enctype="multipart/form-data" class="p-3">
+        <label class="form-label">Product name</label>
+<input type="text" class="form-control"
+required placeholder="Enter product name" name="product_name"><br>
+
+<label class="form-label">Product price</label>
+<input type="text" class="form-control"
+required placeholder="Enter product price" name="product_price"><br>
+
+<label class="form-label">Product Stock Available</label>
+<input type="text" class="form-control"
+required placeholder="Enter product stock available" name="product_stock"><br>
+
+<label class="form-label">Product image</label>
+<input type="file" class="form-control"
+required name="image"><br>
+
+<label class="form-label">Product type</label>
+<select required name="product_type" class="form-control">
+    <option selected disabled value="">Select type</option>
+    <option>Digital Watches</option>
+    <option>Smart Watch</option>
+    <option>Dress Watches</option>
+    <option>Field Watch</option>
+    <option>Chronograph Watch</option>
+    <option>Swiss Watches</option>
+</select><br>
+
+<label class="form-label">Product description</label>
+<textarea class="form-control"
+required name="product_description"></textarea><br>
+<button>save now</button>
+    </form>
+    <%if(status){%>
+      
+        <h3><font color = 'green'>Data save successfully</font></h3>
+    <%}%>
+</div>
+</div>
+</div>
+</div>
+
+   
+<%-include('admin_dashboard_footer.ejs')%>

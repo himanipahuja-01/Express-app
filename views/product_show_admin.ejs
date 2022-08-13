@@ -1,0 +1,39 @@
+<%-include('admin_dashboard_header.ejs')%>
+
+<div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+  <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product_id</th>
+            <th scope="col">Product_price</th>
+            <th scope="col">Product_name</th>
+            <th scope="col">Product_description</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Product_type</th>
+            <th scope="col">Product_image</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-dark">
+          <%for(var i=0;i<data.length; i++){%>
+          <tr>
+           <td><%=data[i].Product_id%></td>
+           <td>Rs.<%=data[i].Product_price%></td>
+           <td><%=data[i].Product_name%></td>
+           <td><%=data[i].Product_description%></td>
+           <td><%=data[i].Stock_availability%></td>
+           <td><%=data[i].Product_type%></td>
+           <td><img src="../public/upload_images/<%=data[i].Product_image%>" width="100px" height="100px"></td>
+           <td>
+            <a href="/delete_product?id=<%=data[i].Product_id%>">Delete</a>|
+            <a href="/edit_product?id=<%=data[i].Product_id%>">Edit</a>
+           </td>
+          </tr>
+        <%}%>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+    <%-include('admin_dashboard_footer.ejs')%>

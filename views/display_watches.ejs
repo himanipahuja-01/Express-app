@@ -1,0 +1,57 @@
+<%-include('header.ejs')%>
+<div class="container mt-5 d-flex">
+    <div class="row">
+
+   
+    <% for(var i=0;i<mydata.length;i++){%>
+        <div class="col-lg-3">
+        
+        <div class="card m-3 border-0 shadow-lg size">
+          <div
+            class="card-header overflow-hidden border-0"
+           
+          >
+            <img
+              src="../public/upload_images/<%=mydata[i].Product_image%>"
+             
+              class="zoom img-fluid sizing"
+              alt="..."
+            />
+  
+          </div>
+          <div class="">
+            <h3 class="text-justify text-center"><%=mydata[i].Product_name%></h3>
+            <h6 class="text-truncate text-center text-secondary">
+                pieces=<%=mydata[i].Stock_availability%>
+            </h6>
+            <div class="d-flex justify-content-center p-2">
+              <h4 class="ms-0">Rs.<%=mydata[i].Product_price%></h4>
+              
+            </div>
+          </div>
+  
+          <div class="d-flex mb-3">
+              <button
+                class="fs-6 btn btn-info m-1"
+              >
+                Add To Cart
+        </button>
+        <button
+        class=" fs-6 btn btn-info m-1"
+      >
+      <a href="/view/<%=mydata[i].Product_id%>" class="text-decoration-none text-light">
+       View more
+    </a>
+</button>
+    </div>
+          
+         
+        </div>
+    </div>
+        <% }%>
+    </div>
+      </div>
+
+
+</body>
+</html>

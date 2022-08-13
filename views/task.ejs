@@ -1,0 +1,102 @@
+<%-include('header.ejs')%>
+
+<h1 align="center">Add Student</h1>
+
+<div class="container mt-5">
+
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-page-length="3">
+        <thead>
+    <tr>
+        <th>Student Name</th>
+        <th>Student email_id</th>
+        <th>Student image</th>
+        <th>Student branch</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+   
+        
+    <% for(var i=0;i<mydata.length;i++){%>
+        <tr>
+            <td><%=mydata[i].name%></td>
+            <td><%=mydata[i].email_id%></td>
+            <td><img src="../public/upload_images/<%=mydata[i].student_image%>" width="300px" height="150px"/></td>
+            <td><%=mydata[i].branch%></td>
+            <td><a href="/delete_stu?chd=<%=mydata[i].email_id%>">Delete now</a></td>
+        </tr>
+   <% }%>
+</tbody>
+   <form action="/add_stu_data" method="post" enctype="multipart/form-data">
+    <tr>
+    <td>Student name<input type="text" name="nm" required placeholder="Enter Your Name"></td>
+    <td>Student Email-Id<input type="email" name="em" required placeholder="Enter Your Email-id"></td>
+    <td>Select Photo<input type="file" name="my_image_file" required></td>
+    <td> Branch<select required name="brn">
+        <option selected disabled value="">Select Branch</option>
+        <option>Cse</option>
+        <option>civil</option>
+        <option>Mech</option>
+    </select></td>
+    <td><button>Add</button></td>
+</tr>
+    </form>
+
+
+   
+
+
+
+
+
+</table>
+
+</div>
+
+
+<script>
+    $(document).ready(function() {
+          $('#dataTable').DataTable();
+    });
+</script>
+
+
+<!-- <script>
+    $(document).ready(function () {
+        // $('#dataTable').DataTable();
+        $('#dataTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'excel',
+                text: 'Excel',
+                className: 'exportExcel',
+                filename: 'Test_Excel',
+                exportOptions: { modifier: { page: 'all'} }
+            },
+            {
+                extend: 'csv',
+                text: 'CSV',
+                className: 'exportExcel',
+                filename: 'Test_Csv',
+                exportOptions: { modifier: { page: 'all'} }
+            },
+            {
+                extend: 'pdf',
+                text: 'PDF',
+                className: 'exportExcel',
+                filename: 'Test_Pdf',
+                exportOptions: { modifier: { page: 'all'} }
+            }]
+        });
+
+    });
+</script> -->
+<center>
+<%if(status){%>
+      
+    <h3><font color = 'green'>Data save successfully</font></h3>
+<%}%>
+</center>
+</body>
+</html>

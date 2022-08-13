@@ -1,0 +1,46 @@
+<%-include('header.ejs')%>
+
+
+  <div class="container mt-5 shadow p-4">
+    <div class="row">
+      <div class="col-lg-5">
+        
+              <img
+                src="../public/upload_images/<%=mydata[0].Product_image%>"
+                class="d-block w-100 p-4"
+                alt="..."
+              />
+        
+        </div>
+     
+      <div class="col-lg-7 mt-5">
+        <h2><%=mydata[0].Product_name%></h2>
+        <h4 class="text-secondary"><%=mydata[0].Product_type%></h4>
+       
+        <h2 class="mt-4">Rs.<%=mydata[0].Product_price%></h2>
+        <p class="text-secondary">
+        Product Desscription:-
+          <%=mydata[0].Product_description%>
+        </p>
+
+          <form action="/mybill_details" method="post">
+          <input type="hidden" name="watch_name" value="<%=mydata[0].Product_name%>">
+          <input type="hidden" name="watch_price" value="<%=mydata[0].Product_price%>">
+          <input type="hidden" name="watch_id" value="<%=mydata[0].Product_id%>">
+          <input type="hidden" name="watch_type" value="<%=mydata[0].Product_type%>">
+          <input type="hidden" name="watch_description" value="<%=mydata[0].Product_description%>">
+          <input type="number" name="watch_quantity" value="1" required>
+        
+           <button
+            class="btn btn-primary marg p-1"
+          >
+           Buy now
+          </button> 
+        </form>
+        
+      </div>
+    </div>
+  </div>
+ 
+</body>
+</html>

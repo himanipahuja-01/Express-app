@@ -1,0 +1,57 @@
+<%-include('header.ejs')%>
+
+    <div class="container mt-5">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Product id</th>
+                    <th>Product name</th>
+                    <th>Product type</th>
+                    <th>Product quantity</th>
+                    <th>Total amount to be paid</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <%= prid%>
+                    </td>
+                    <td>
+                        <%=pname%>
+                    </td>
+                    <td>
+                        <%= ptype%>
+                    </td>
+                    <td>
+                        <%= pqnty%>
+                    </td>
+                    <td>
+                        <%=pprice%>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tr>
+                <td>
+                    <form action="/pay_now" method="post">
+                        <input type="hidden" name="description" value="<%=description%>">
+                        <input type="hidden" name="item_number" value="<%=prid%>">
+                        <input type="hidden" name="item_name" value="<%=pname%>">
+                        <input type="hidden" name="amount" value="<%=pprice%>">
+                        <input type="hidden" name="currency_code" value="usd">
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="return" value="http://localhost:2701/Payment_success">
+                        <input type="hidden" name="cancel_return" value="http://localhost:2701/Payment_cancel">
+                        <input type="hidden" name="cmd" value="xclick">
+
+                        <button>Pay now</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    </body>
+
+    </html>

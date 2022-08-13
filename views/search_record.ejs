@@ -1,0 +1,42 @@
+<%-include('header.ejs')%>
+    <center>
+        <h1>Search Product Here</h1>
+        <hr>
+        <form action="/find_record" method="post">
+            Enter Product Name | type | price :- <input type="text" required placeholder="Enter product name or price or type" name="ps"><br><br>
+            <button>Find now</button>
+        </form>
+        <% if(status){%>
+        <h3 class="mt-5"><font color = 'red'>Record not found</font></h3>
+            
+            <%}else if(status1){%>
+<h3 class="mt-5"><font color = 'green'>Record found</font></h3>
+<div class="container mt-5">
+<table class="table table-bordered bg-info" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+<tr>
+    <th>Sno</th>
+    <th>Product Name</th>
+    <th>Product price</th>
+    <th>Product type</th>
+    <th>Product stock quantity</th>
+</tr>
+</thead>
+
+<tbody>
+<% for(var i=0;i<mydata.length;i++){%>
+    <tr>
+        <td><%=mydata[i].id%></td>
+        <td><%=mydata[i].product_name%></td>
+        <td><%=mydata[i].product_price%></td>
+        <td><%=mydata[i].product_type%></td>
+        <td><%=mydata[i].no_of_stock%></td>
+    </tr>
+<% }%>
+</tbody>
+</table>
+</div>
+            <%}%>
+    </center>
+</body>
+</html>

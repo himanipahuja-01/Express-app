@@ -1,0 +1,35 @@
+<%-include('header.ejs')%>
+<div class="container mt-5">
+
+   
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+    <tr>
+        <th>Student Name</th>
+        <th>Student email_id</th>
+        <th>Student image</th>
+        <th>Student branch</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% for(var i=0;i<mydata.length;i++){%>
+        <tr>
+            <td><%=mydata[i].name%></td>
+            <td><%=mydata[i].email_id%></td>
+            <td><img src="../public/upload_images/<%=mydata[i].student_image%>" width="300px" height="150px"/></td>
+            <td><%=mydata[i].branch%></td>
+            <td><a href="/delete_student?chd=<%=mydata[i].email_id%>">Delete now</a>
+            |<a href="/file_download?myfile=<%=mydata[i].student_image%>">Download Now</a></td>
+
+            
+        </tr>
+   <% }%>
+</tbody>
+</table>
+
+</div>
+
+</body>
+</html>

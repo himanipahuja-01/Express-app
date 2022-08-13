@@ -1,0 +1,36 @@
+<%-include( 'header.ejs')%>
+    <center>
+      <h1>Product ADD FORM</h1>
+      <form action="/add_now" method="post">
+        enter product name
+        <input
+          type="text"
+          required
+          placeholder="enter your product name"
+          name="pname"
+        /><br /><br />
+        enter product price<input
+          type="text"
+          required
+          placeholder="enter product price"
+          name="pprice"
+        /><br /><br />
+        Select type
+        <select name="ptype" required>
+          <option selected value="" disabled>select product type</option>
+          <option>Electronic</option>
+          <option>grocery</option>
+          <option>Furniture</option></select
+        ><br /><br />
+        Enter no of stocks<input
+          type="text"
+          name="nstock"
+          required
+          placeholder="enter no. of stock available"
+        /><br /><br />
+        <button>Add Now</button>
+      </form>
+      <% if(mymessage) {%> <h3><%=mymessage%></h3> <%}%>
+    </center>
+  </body>
+</html>

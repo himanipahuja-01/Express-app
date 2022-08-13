@@ -1,0 +1,38 @@
+<%-include('admin_dashboard_header.ejs')%>
+
+<div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+  <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Order_id</th>
+            <th scope="col">Mercent_id</th>
+            <th scope="col">Txn Id</th>
+            <th scope="col">Txn Date</th>
+            <th scope="col">Txn Status</th>
+            <th scope="col">Gateway Name</th>
+            <th scope="col">Bank Id</th>
+        
+          </tr>
+        </thead>
+        <tbody class="text-dark">
+          <%for(var i=0;i<data.length; i++){%>
+          <tr>
+           <td><%=data[i].ct_email_id%></td>
+           <td><%=data[i].orderid%></td>
+           <td><%=data[i].mid%></td>
+           <td><%=data[i].txnid%></td>
+           <td><%=data[i].txndate%></td>
+           <td><%=data[i].status%></td>
+           <td><%=data[i].gateway_name%></td>
+           <td><%=data[i].banktxnid%></td>
+           <!-- <td><a href="/cancel_order?email=<%=data[i].orderid%>">Cancel Order</a></td> -->
+          </tr>
+        <%}%>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+    <%-include('admin_dashboard_footer.ejs')%>

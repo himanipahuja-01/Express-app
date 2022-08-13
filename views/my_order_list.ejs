@@ -1,0 +1,32 @@
+<%-include('header.ejs')%>
+
+<div class="container">
+    <table class="table mt-3 border">
+        <thead>
+          <tr>
+            <th scope="col">Order_id</th>
+            <th scope="col">Product_id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Date and time</th>
+          
+         
+          </tr>
+        </thead>
+        <tbody class="text-dark">
+          <%for(var i=0;i<data.length; i++){%>
+          <tr>
+           <td><%=data[i].orderid%></td>
+           <td><%=data[i].pid%></td>
+           <td><%=data[i].pname%></td>
+           <td>Rs.<%=data[i].pprice%></td>
+           <td><%=data[i].date_time%></td>
+          <td><a href="/shipping_st?my_order_id=<%=data[i].orderid%>&price=<%=data[i].pprice%>&dt=<%=data[i].date_time%>" class="btn btn-primary">Shipping</a></td>
+          </tr>
+        <%}%>
+        </tbody>
+      </table>
+    </div>
+
+    </body>
+    </html>

@@ -1,0 +1,38 @@
+<%-include('admin_dashboard_header.ejs')%>
+
+<div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+  <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Order_id</th>
+            <th scope="col">Product_id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Packing Status</th>
+            <th scope="col">Shipping Status</th>
+            <th scope="col">Arrived Status</th>
+            <th scope="col">Shipping Address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="text-dark">
+          <%for(var i=0;i<data.length; i++){%>
+          <tr>
+           <td><%=data[i].ct_email_id%></td>
+           <td><%=data[i].orderid%></td>
+           <td><%=data[i].pid%></td>
+           <td><%=data[i].pname%></td>
+           <td><%=data[i].packing_status%></td>
+           <td><%=data[i].shipping_status%></td>
+           <td><%=data[i].arrived_status%></td>
+           <td><%=data[i].shipping_address%></td>
+           <td><a href="/edit_shipping?id=<%=data[i].orderid%>">Edit Shipping</a></td>
+          </tr>
+        <%}%>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+    <%-include('admin_dashboard_footer.ejs')%>

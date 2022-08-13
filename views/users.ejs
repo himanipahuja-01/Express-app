@@ -1,0 +1,35 @@
+<%-include('admin_dashboard_header.ejs')%>
+
+<div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+  <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Password</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="text-dark">
+          <%for(var i=0;i<data.length; i++){%>
+          <tr>
+           <td><%=data[i].name%></td>
+           <td><%=data[i].email%></td>
+           <td><%=data[i].password%></td>
+           <td><%=data[i].mobile%></td>
+           <td><%=data[i].gender%></td>
+           <td><%=data[i].address%></td>
+           <td><a href="/delete_user?email=<%=data[i].email%>">Delete</a>|
+            <a href="/edit_user?email=<%=data[i].email%>">Edit</a></td>
+          </tr>
+        <%}%>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+    <%-include('admin_dashboard_footer.ejs')%>
